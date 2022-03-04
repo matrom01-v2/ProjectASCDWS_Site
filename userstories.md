@@ -2,18 +2,18 @@
 
 ## Table of Contents
 ---
-1. [Main Menu Format](#1.%20Main%20Menu%20Format)
-    1. [Start a new save](#1.1%20Start%20a%20new%20save)
-    2. [Load a previous save](#1.2%20Load%20a%20previous%20save)
-    3. [Configure key game options](#1.3%20Configure%20key%20game%20options)
-2. [Controls](#2.%20Controls)
-    1. [Movement, forward, back, left and right.](#2.1%20Movement,%20forward,%20back,%20left%20and%20right.)
-    2. [Interacting with objects/items. Picking up or dropping.](#2.2%20Interacting%20with%20objects/items.%20Picking%20up%20or%20dropping.)
-    3. [Combat Controls.](#2.3%20Combat%20Controls.)
-3. [Gameplay](#3.%20Gameplay)
-    1. [In-game world movement](#3.1%20In-game%20world%20movement)
-    2. [Replayability](#3.2%20Replayability)
-    3. [Story Elements](#3.3%20Story%20Elements)
+1. [Main Menu Format](#1-main-menu-format)
+    1. [Start a new save](#11-start-a-new-save)
+    2. [Load a previous save](#12-load-a-previous-save)
+    3. [Configure key game options](#13-configure-key-game-options)
+2. [Controls](#2-controls)
+    1. [Movement, forward, back, left and right.](#21-movement-forward-back-left-and-right)
+    2. [Interacting with objects/items. Picking up or dropping.](#22-interacting-with-objectsitems-picking-up-or-dropping)
+    3. [Combat Controls.](#23-combat-controls)
+3. [Gameplay](#3-gameplay)
+    1. [In-game world movement](#31-in-game-world-movement)
+    2. [Replayability](#32-replayability)
+    3. [Story Elements](#33-story-elements)
 
 ---
 ---
