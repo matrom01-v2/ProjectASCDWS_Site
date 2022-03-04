@@ -2,6 +2,8 @@
 
 Feast for Crows (working title) is a top-down 2D survival game. The core elements of the game will include Atari style graphics, reminiscent of games such as The Binding of Isaac or Faith. Graphics will be kept simple for time allotment, but themes will be dark-focused to create atmosphere for players. Majority of the story will be told via text boxes displayed on the screen. Conversation and narration will occur in said textboxes. Play style is a rogue-like survival in a hostile forest. Players can and will encounter hostile situations including wildlife, sustenance, enemy people, and something else. Among the wildlife, there are 2 mini bosses and one final boss.
 
+[[Jump to Core Mechanics](#core-mechanics)]
+
 ![Faith Cutscene Screenshot](https://user-images.githubusercontent.com/90274287/156299527-3540db2a-a784-414c-bc04-77e4e7620cee.png)
 ![Faith Screenshot](https://user-images.githubusercontent.com/90274287/156299520-2754401c-36ec-4d32-a3df-5291a5d8a8fd.jpg)
 ![Stage_Mausoleum_room](https://user-images.githubusercontent.com/90274287/156299511-fcea6041-75bc-410c-8e83-a1d6b2dfd1b6.png)
@@ -18,6 +20,8 @@ The core mechanics of the game are centered around surviving and escaping from a
 ### One
 ---
 > A fixed inventory system in which the player character can only carry so many items. Players will need to manage storage and take only what they deem important at the time. Items will be useful in some cases, and useless in others.
+
+![Valheim Inventory](https://user-images.githubusercontent.com/90274287/156303024-ab37d559-58cc-4138-89f0-113450330c76.jpg)
 
 ### Two
 ---
