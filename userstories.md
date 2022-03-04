@@ -21,7 +21,7 @@ As a player, I want to be able to create a new game with my desired difficulty l
 
 **Constraints**: There should be 3 to 5 save files so that users can experiment with different difficulties and no more than 5 to save space both visually in the menu and storage space, and also because realistically someone would not want to finish the game in 50 different saves.
 
-**Effort Estimation**: # person-hours: 2
+**Effort Estimation**: 2 person-hours.
 
 **Acceptance Test**: Create a save on an “EASY” difficulty, one on a “MEDIUM” difficulty, and one on a “HARD” difficulty, and have my progress save after a tutorial so I can pick and choose later on based on which difficulty I am settling with.
 
@@ -32,7 +32,7 @@ As a player, I want to be able to load previous saves without losing any data an
 
 **Constraints**: None.
 
-**Effort Estimation**: # person-hours: 2
+**Effort Estimation**: 2 person-hours.
 
 **Acceptance Test**: I am able to tell which save is mine, or which specific “setup” from a save fits my current mood of casual or serious, without looking at the name of the save. I should also be able to recognize any improvement in my own game by seeing stats go up such as time, wins-to-runs ratio, and unlocks.
 
@@ -44,7 +44,7 @@ As a player, I want to be able to configure my game to my own liking such as vol
 
 **Constraints**: Simple audio controls: overall, music, and sound effects. Accessibility tools: colorblind filter.
 
-**Effort Estimation**: # person-hours: 8
+**Effort Estimation**: 8 person-hours.
 
 **Acceptance Test**: I should be able to set my volume easily in game or in the menu based on my own personal preferences or on the situation like listening to a podcast or music in the background, I should also be able to rebind my keys from the default WASD scheme to the arrow keys, IJKL, or any random arbitrary configuration of keys as long as there are no conflicts, and I should be able to set the colorblind filter to my specific colorblind diagnosis if I have one.
 
@@ -61,7 +61,7 @@ As a player, I want to know how the movement in the game should be used and impl
 
 **Constraints**: A player will not be able to walk into every crevice in the game, and there will be constraints in terms of invisible walls, collision, etc..
 
-**Effort Estimation**: # person-hours: 4
+**Effort Estimation**: 4 person-hours.
 
 **Acceptance Test**: I should be able to successfully move around the map without having the trouble of not knowing how to get around. I should know when I am facing a collision or if the movement is just not working as intended.
 
@@ -72,7 +72,7 @@ As a player I want to know how objects are going to be used to influence my expe
 
 **Constraints**: None.
 
-**Effort Estimation**: # person-hours: 4
+**Effort Estimation**: 4 person-hours.
 
 **Acceptance Test**: I should be able to know which items can be used where, how, and even when. Well directed interaction with any object in the game would be considered a successful test.
 
@@ -83,7 +83,7 @@ As a player, I want to know how fighting other creatures, people, or any other e
 
 **Constraints**: None.
 
-**Effort Estimation**: # person-hours: 4
+**Effort Estimation**: 4 person-hours.
 
 **Acceptance Test**: I should be able to successfully complete combat, whether that means hurting an entity or being hurt by an entity, and know how it is happening.
 
@@ -99,7 +99,7 @@ As a player, I want to know where and how freely I can move across the main area
 
 **Constraints**: There are set rooms/areas, this is not open world. The player will run into borders, but will match with in-game visuals that can also guide players. 
 
-**Effort Estimation**: # person-hours: 3
+**Effort Estimation**: 3 person-hours.
 
 **Acceptance Test**: I should be able to see and understand where I, the player, can move about without getting stuck, lost, or breaking the game. Elements such as world borders and in-game visuals should provide some aid as to how to proceed forward with the game.
 
@@ -108,9 +108,9 @@ As the player, I want enough in-game diversity that I would be able to play thro
 
 **Elaboration**: Difference in difficulty, multiple endings, changes in enemy/item spawn rates would all provide new and unique run throughs if I played through the game again.
 
-**Constraints**: None. (this may need some things, couldn't think of any)
+**Constraints**: None.
 
-**Effort Estimation**: # person-hours: 6
+**Effort Estimation**: 6 person-hours.
 
 **Acceptance Test**: After a successful runthrough of the game, I should be able to play through once again with difference in difficulty, item drops, enemy spawns, etc. 
 
@@ -121,6 +121,6 @@ As a player, I want to have some interest in the story of the game. Some basic s
 
 **Constraints**: None.
 
-**Effort Estimation**: # person-hours: 3
+**Effort Estimation**: 3 person-hours.
 
 **Acceptance Test**: The start, throughout, and the ending of the story should be thoughtful and interesting as to fully keep me, the player, engaged with the game. Whether it is satisfying or not, I, the player, should be left with some sort of feeling of completion after having finished the initial run through of the game.
