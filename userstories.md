@@ -28,13 +28,13 @@ As a player, I want to be able to create a new game with my desired difficulty l
 ### 1.2 Load a previous save
 As a player, I want to be able to load previous saves without losing any data and knowing what each save contains, including unlocks and difficulty, so that I can choose my preferred game run based on how I am feeling, or if a sibling or friend wants to load their individual save.
 
-Elaboration: Games are meant to be shared and experienced with others, especially ones that are super short and easy to get into like rogue-likes. The ability to differentiate saves on more than just the custom save name, being able to differentiate with elements such as unlocks, total runs and time played, and difficulty, would help to differentiate between a set of saves, or even share saves and check how someone is progressing.
+**Elaboration**: Games are meant to be shared and experienced with others, especially ones that are super short and easy to get into like rogue-likes. The ability to differentiate saves on more than just the custom save name, being able to differentiate with elements such as unlocks, total runs and time played, and difficulty, would help to differentiate between a set of saves, or even share saves and check how someone is progressing.
 
-Constraints: None.
+**Constraints**: None.
 
-Effort Estimation: # person-hours: 2
+**Effort Estimation**: # person-hours: 2
 
-Acceptance Test: I am able to tell which save is mine, or which specific “setup” from a save fits my current mood of casual or serious, without looking at the name of the save. I should also be able to recognize any improvement in my own game by seeing stats go up such as time, wins-to-runs ratio, and unlocks.
+**Acceptance Test**: I am able to tell which save is mine, or which specific “setup” from a save fits my current mood of casual or serious, without looking at the name of the save. I should also be able to recognize any improvement in my own game by seeing stats go up such as time, wins-to-runs ratio, and unlocks.
 
 ### 1.3 Configure key game options
 
