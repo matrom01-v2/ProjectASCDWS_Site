@@ -89,4 +89,38 @@ As a player, I want to know how fighting other creatures, people, or any other e
 
 ---
 
-## 3. TITLE
+## 3. Gameplay
+> ### As a player, I would like the gameplay and mechanics to be well-rounded and challenging, yet fair, so that it is not frustrating or boring.
+
+### 3.1 In-game world movement
+As a player, I want to know where and how freely I can move across the main areas and other various set locations throughout the game.
+
+**Elaboration**: If the set environment is not clear about where I, the player, can move around to, it is possible to become lost or unsure of how to proceed forward.
+
+**Constraints**: There are set rooms/areas, this is not open world. The player will run into borders, but will match with in-game visuals that can also guide players. 
+
+**Effort Estimation**: # person-hours: 3
+
+**Acceptance Test**: I should be able to see and understand where I, the player, can move about without getting stuck, lost, or breaking the game. Elements such as world borders and in-game visuals should provide some aid as to how to proceed forward with the game.
+
+### 3.2 Replayability
+As the player, I want enough in-game diversity that I would be able to play through the game again and experience a new and/or different run through.
+
+**Elaboration**: Difference in difficulty, multiple endings, changes in enemy/item spawn rates would all provide new and unique run throughs if I played through the game again.
+
+**Constraints**: None. (this may need some things, couldn't think of any)
+
+**Effort Estimation**: # person-hours: 6
+
+**Acceptance Test**: After a successful runthrough of the game, I should be able to play through once again with difference in difficulty, item drops, enemy spawns, etc. 
+
+### 3.3 Story Elements
+As a player, I want to have some interest in the story of the game. Some basic story design elements should take place in order to keep me, the player, engaged to the game.
+
+**Elaboration**: As a survival rogue, the game should have some sort of interesting storyline that should include some danger to push that survival feeling. 
+
+**Constraints**: None.
+
+**Effort Estimation**: # person-hours: 3
+
+**Acceptance Test**: The start, throughout, and the ending of the story should be thoughtful and interesting as to fully keep me, the player, engaged with the game. Whether it is satisfying or not, I, the player, should be left with some sort of feeling of completion after having finished the initial run through of the game.
