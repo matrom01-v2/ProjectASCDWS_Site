@@ -2,7 +2,9 @@
 
 Feast for Crows (working title) is a top-down 2D survival game. The core elements of the game will include Atari style graphics, reminiscent of games such as The Binding of Isaac or Faith. Graphics will be kept simple for time allotment, but themes will be dark-focused to create atmosphere for players. Majority of the story will be told via text boxes displayed on the screen. Conversation and narration will occur in said textboxes. Play style is a rogue-like survival in a hostile forest. Players can and will encounter hostile situations including wildlife, sustenance, enemy people, and something else. Among the wildlife, there are 2 mini bosses and one final boss.
 
-![Faith Cutscene Screenshot](https://user-images.githubusercontent.com/90274287/156299527-3540db2a-a784-414c-bc04-77e4e7620cee.png) ![Faith Screenshot](https://user-images.githubusercontent.com/90274287/156299520-2754401c-36ec-4d32-a3df-5291a5d8a8fd.jpg) ![Stage_Mausoleum_room](https://user-images.githubusercontent.com/90274287/156299511-fcea6041-75bc-410c-8e83-a1d6b2dfd1b6.png)
+![Faith Cutscene Screenshot](https://user-images.githubusercontent.com/90274287/156299527-3540db2a-a784-414c-bc04-77e4e7620cee.png)
+![Faith Screenshot](https://user-images.githubusercontent.com/90274287/156299520-2754401c-36ec-4d32-a3df-5291a5d8a8fd.jpg)
+![Stage_Mausoleum_room](https://user-images.githubusercontent.com/90274287/156299511-fcea6041-75bc-410c-8e83-a1d6b2dfd1b6.png)
 
 
 ---
