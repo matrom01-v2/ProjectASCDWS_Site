@@ -36,7 +36,7 @@ Our product will be a class project. This is an assignment that will run through
 
 ### 2.2 Domain Model with Description
 
-!MODEL!
+![Initial Requirements (4)](https://user-images.githubusercontent.com/90274287/160054661-2e6e5742-39e9-4801-9f22-abe2d8ab7a70.png)
 
 The model shown above will allow for easy saving of multiple game states such as player's inventory, position in the scene they are located within, and the position and state of both the player and the enemies around them.
 
