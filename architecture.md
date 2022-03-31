@@ -30,8 +30,7 @@ We would need the game to be able to respond to updates in the system. This incl
 
 ## Architecture Design
 
-![ARCHITECTURE DRAWING](https://user-images.githubusercontent.com/90274287/161160857-b4a36645-af76-4bf8-a40b-ef7a79ac2134.svg)
-
+![ARCHITECTURE DRAWING](https://user-images.githubusercontent.com/90274287/161161066-57d9bf90-0e91-4b86-8368-7f872e60ff9b.png)
 
 ---
 
