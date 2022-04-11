@@ -14,6 +14,42 @@ We would need the game to be able to respond to updates in the system. This incl
 
 ![ARCHITECTURE DRAWING](https://user-images.githubusercontent.com/90274287/161161066-57d9bf90-0e91-4b86-8368-7f872e60ff9b.png)
 
+{Design Explanatory Text}
+
+{Response to feedback given here: [\[link\]](https://nmsu.instructure.com/courses/1434741/assignments/11849929/submissions/3728078)}
+<details>
+<summary>
+<---- Read Toupes' Feedback (Carrot Arrow to Expand)
+</summary>
+<p>
+
+working on combat system
+inventory subsystem
+survival game, so what items are carried and left behind are core decisions
+focus on survival aspect – outdoor map with obstacles
+
+> need a good model of survival components – health, regeneration rate, hunger, thirst – probably a major piece of the design and part of the architecture
+
+single player game, so not server/client
+
+working all locally
+
+repository – database vs blackboard
+
+database that's run locally – issue is that read and write requests, concerns about latency caused by hard drive writes
+
+> so there's probably settings for this; most likely some part of the database that's in regular use should be loaded into memory, but it would regularly need to be written to the backing store. 
+
+blackboard approach – use an in-memory object
+
+> really make sure that you look at the Singleton Design Pattern. Be really careful about having a global for tracking the blackboard, but you can essentially pass a reference to a single, canonical blackboard object. Note too that you'll need to ensure that access to the blackboard is synchronized appropriately. You'll probably find that having a set of known constant keys that get mapped to values in the blackboard. (So objects like HashMap / HashTable / Map / etc.)
+
+https://refactoring.guru/design-patterns/singleton
+Z Toups , Apr 1 at 1:11pm
+</p>
+</details>
+
+
 ---
 
 ## Singleton Blackboard
