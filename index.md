@@ -15,3 +15,5 @@ Welcome to the forest.
 :: [Requirements](https://matrom01-v2.github.io/ProjectASCDWS_Site/requirements)
 
 :: [Architecture](https://matrom01-v2.github.io/ProjectASCDWS_Site/architecture)
+
+:: [Design](https://matrom01-v2.github.io/ProjectASCDWS_Site/design)
