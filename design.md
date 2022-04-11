@@ -19,7 +19,7 @@ We would need the game to be able to respond to updates in the system. This incl
 {Response to feedback given here: [\[link\]](https://nmsu.instructure.com/courses/1434741/assignments/11849929/submissions/3728078)}
 <details>
 <summary>
-<---- Read Toupes' Feedback (Carrot Arrow to Expand)
+<<< Read Toupes' Feedback (<strong>TAP/CLICK ME TO EXPAND AND READ</strong>) >>>
 </summary>
 <p>
 
