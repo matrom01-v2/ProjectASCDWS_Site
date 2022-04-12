@@ -81,7 +81,6 @@ This class handles all movement behavior, which includes collision and water mov
 ---
 This script controls the entirety of a player GameObject, and is the main driver for the player-controlled character. It extends `Movement.cs` to have a unified movement behavior, and receives all of the Movement class's fields.
 
-\[ROBERT'S STUFF\]
 - Player has a reference to their own Inventory Manager (`InventoryManager.cs`) as a field for easy access.
 - Player overrides parent (base) `Start()`, calls `base.Start()`, then sets the `currentHealth` and `currentThirst` to `maxHealth` and `maxThirst`, and sets it to the respective visual bars.
 - `FixedUpdate()` takes user input and calls its parent's, `Movement`, `MoveDirection` method that takes in a `vector2` of its x and y movement based on user input.
@@ -169,6 +168,30 @@ Floating Text manager is meant to drive forward the floating text.
 	- This method will check to see if there is currently a text active if not, it will retrieve a text, instantiate it, and send it back to the `Show` method.
 - Show Method
 	- Show will set all fields of a floatingText object. This includes the actual text (`msg`), `fontSize`, `color`, `position`, `motion`, and `duration`. This will finally call the show method in the `FloatingText.cs` file.
+
+### Collidable (`Collidable.cs`)
+---
+This class is a base behavior script that collects all collisions that make contact with the attached gameObject. It then calls `OnCollide()` with up to 10 objects colliding with it at once, which can be overriden to allow for child classes to define their own behavior based on the incoming collision.
+
+- Private Fields
+  * `hits`: An array that stores up to 10 collided gameObjects.
+  * `messageShown`: If a `Player` object collides with this gameObject, and emits a message, it will remain `true` until the `Player` stops colliding, that way there's no duplicate looping messages and it only shows once while colliding.
+
+- `FixedUpdate()`: Called 50 times per second, and collects all the colliding objects.
+- `OnCollide()`: Default behavior that can be overriden; If `messageShown` or `collision` is not a `Player`, then return, else `messageShown` gets turned to `true`.
+
+
+### Collectable (`Collectable.cs`)
+---
+.
+
+### Pickup (`Pickup.cs`)
+---
+.
+
+### Chest (`Chest.cs`)
+---
+.
 
 
 ---
