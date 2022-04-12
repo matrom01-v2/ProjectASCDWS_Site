@@ -68,13 +68,23 @@ These are scripts attached to objects that extend from the `MonoBehavior` class.
 
 ### Movement (`Movement.cs`)
 ---
+This class handles all movement behavior, which includes collision and water movement debuffs. This helps centralize all behavior, and allows for easy modification to movement mechanics and addition to new debuffs or buffs such as in-water movement.
+
+- These following properties are available to customize
+  * `moveMultiplier`: Movement speed for the object. `0.5F` is the default.
+  * `waterResistance`: Movement speed `multiplier` when the object is in water. `1.0F` is the default.
+    * Anything `less than 1.0F` slows the object movement down.
+    * Anything `greater than 1.0F` speeds the object movement up.
+    * `No debuff` is applied if the value is `exactly 1.0F`.
 
 ### Player (`Player.cs`)
 ---
 This script controls the entirety of a player GameObject, and is the main driver for the player-controlled character. It extends `Movement.cs` to have a unified movement behavior, and receives all of the Movement class's fields.
 
 \[ROBERT'S STUFF\]
-
+- Player has a reference to their own Inventory Manager (`InventoryManager.cs`) as a field for easy access.
+- Player overrides parent (base) `Start()`, calls `base.Start()`, then sets the `currentHealth` and `currentThirst` to `maxHealth` and `maxThirst`, and sets it to the respective visual bars.
+- `FixedUpdate()` takes user input and calls its parent's, `Movement`, `MoveDirection` method that takes in a `vector2` of its x and y movement based on user input.
 
 - **Implementation of `HealthBar.cs`**
 
@@ -132,6 +142,14 @@ Item database stores all instances of unique items to be quickly referenced and 
 - GetItem() fetches an item from the database via ID or Name.
 - `GameManager` now holds a reference to the ItemDatabase GameObject to quickly reference wherever needed to forego a costly fetch.
 
+### Lerp (`AutoLerp.cs`)
+---
+This is a simple script to allow for an item's color property to cycle through a given list of colors at a given interval of time.
+
+- It has the following customizable fields:
+  * `active`: Defines whether or not to Lerp.
+  * `specialColors`: Defines the colors to cycle through; takes Unity `Color` statics.
+  * `colorTransitionTime`: The amount of seconds to smoothly transition between colors in `specialColors`.
 
 ### Player Inventory (`InventoryManager.cs`)
 ---
@@ -154,6 +172,17 @@ CanCarry(Item item) : bool
 - GiveItem() checks weight against the current haul, and returns true if it was able to add to the player's inventory, and increments current weight based on the item weight.
 - RemoveItem() returns true if it found and removed an item from the inventory, and decrements the current weight based on the item weight.
 - CanCarry() is a helper function to see if an item's weight is able to be carried based on the current weight being carried.
+
+### Floating Text Manager (`FloatingTextManger.cs`)
+---
+Floating Text manager is meant to drive forward the floating text.
+- Update Method 
+	- This method is meant to work as a refresh to the text and make sure that it runs the amount of time needed and doesn't stay longer than needs to be. Calls the method `UpdateFloatingText` in `FloatingText.cs` to make sure this happens correctly.
+- GetFloatingText Method
+	- This method will check to see if there is currently a text active if not, it will retrieve a text, instantiate it, and send it back to the `Show` method.
+- Show Method
+	- Show will set all fields of a floatingText object. This includes the actual text (`msg`), `fontSize`, `color`, `position`, `motion`, and `duration`. This will finally call the show method in the `FloatingText.cs` file.
+
 
 ---
 
@@ -200,5 +229,28 @@ itemIcon   : Sprite
 stats      : Dictionary<string, int>
 }
 ```
+
+### Floating Text (`FloatingText.cs`)
+---
+This file is meant to hold the very basics for showing, hiding, and updating the text currently on screen. This file also holds all the fields of floatingText.
+- Fields:
+	- `bool` active.
+		- Shows whether a text is currently active or not.
+	- `GameObject` go
+		- Works to update the text in unity through GameManager
+	- `Text` txt
+		- This is the actual text that will show up in game.
+	- `Vector3` motion
+		- This is how we want the text to move in game. This includes the text sliding up, down, left or right.
+	- `float` duration
+		- How long we want the text to show up on screen.
+	- `float` lastShown
+		- When the text was last on screen.
+- Show Method
+	- Will set the `active` field to true, set the `lastShown` field to the time in the engine that is current, and call to set the text to active.
+- Hide Method
+	- Will set the `active` field to false, and call to set the text as inactive.
+- UpdateFloatingText
+	- Will check the `active` field first and check if it is inactive, will return if so. Will then make sure that the `lastShown` field is not greater than the wanted duration of the text. Finally will update the motion of the text, or more specifically the current position of the text. 
 
 ---
