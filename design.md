@@ -134,7 +134,7 @@ The Camera Motor is the main driver for the primary player camera, which extends
 
 ### Item Database (`ItemDatabase.cs`)
 ---
-Item database stores all instances of unique items to be quickly referenced and copied into the player's inventory.
+Item database is a singleton that stores all instances of unique items to be quickly referenced and copied into the player's inventory.
 
 - All Item instances are declared upon `Awake()` to allow for quick retrieval when in-game.
   * Currently implemented via a list; Dictionary<int, Item> will be implemented next sprint.
@@ -196,15 +196,83 @@ This class is a base behavior script that collects all collisions that make cont
 
 ### Collectable (`Collectable.cs`)
 ---
-.
+This class extends `Collidable.cs`, and has a reference to the ItemDatabase singleton, which gets retrieved from the `GameManager` on `Start()`. This is the base behavior class for any object that has a collectable item in it.
+
+- `OnCollide`: Filters so that `Player` is the only one to collect an item.
+- `OnCollect`: Sets `collected` flag to true so that all collection behavior ceases.
 
 ### Pickup (`Pickup.cs`)
 ---
-.
+This class extends `Collectable.cs`, and has two important fields.
+
+- This field is mandatory, and dictates what kind of item the gameObject is supposed to be:
+  * `itemId`: The item represented will be of this defined `itemId` from the `itemDatabase`.
+
+- `itemInstance` holds the item that is retrieved from the database on `Start()` so that it may give it to the `Player` later when they interact.
+
+- `OnCollide()` is overriden.
+  * It first checks to see if the item has not been `collected`, and if the collision comes from a `Player`.
+  * If the `Player`, based on their Inventory, is able to carry the `itemInstance`, then it will call `OnCollect()` to add the current `Item` to their inventory, then delete the gameObject to remove it from the scene as it has been collected, then inform the player.
+  * If it is unable to be carried as it exceeds the `Player`'s carry weight, then it will inform the player that it cannot carry the item due to the `Player` carrying too much.
 
 ### Chest (`Chest.cs`)
 ---
-.
+This class extends `Collectable.cs` and implements behavior for chest gameObjects.
+
+- The following customizable fields are available:
+  * `emptychest`: The Sprite to display when the chest is empty/collected.
+  * `locked`: If `true`, the chest can only be unlocked with a specific key (`unlockKeyId`).
+  * `itemsHeldIds`: List of `Item` ids that will be held inside the chest. These are initialized and retrieved from the database on `Start()` in order to give to the player later if unlocked.
+  * `unlockKeyId`: The specific `Item` ID to retrieve from the `ItemDatabase` to set as the `Item` needed to unlock this specific chest. By default it is `Item` ID (0), a Silver Key.
+  * `tooltipShown`: This is a `private` variable that dictates whether or not the "I need a key for this" prompt has been shown. It is similar to the behavior of `messageShown`, but specific to the hint to find a key for it.
+
+- `HasKey()`: Checks to see if the player (from `GameManager`) has at least 1 of the required key based on the `unlockKeyId` which is initialized to `unlockKeyItemReference`.
+
+- `OnCollide()`: Overriden to only check for a `Player` collision, and only proceed if collected.
+  * If the chest is not locked, it will call `OnCollect()`.
+  * If the player interacts with the chest, and uses `Fire3`, the primary interact key, it means they wish to unlock the chest.
+    * If the player `HasKey()`, then it will remove the key from their inventory and stop the method from going forward.
+    * If the player `!HasKey()`, then it will notify the player they do not have the required key and stop the method from going forward.
+  * If the player did not interact with the chest, it will reset `tooltipShown`, then it will notify them that it is locked if the message has not been shown already and if the chest is locked.
+
+- `OnCollect()`: Overriden to give the `Player` all the items contained inside.
+  * It will disable the "locked" collider, which makes the chest collidable while it is locked, so that it can now be walked through since there's no lock on it anymore.
+  * If the chest holds no items (`itemsHeld.Count < 1`), then it will notify the player that there are no items with a random message, then return out of the method.
+  * Since now we know there are items, it will reward the player with all the items and add them all to their inventory with `InventoryManager.GiveItem(item)`, which is grabbed from the `GameManager`'s instance of the `Player`, and then the reference to the `InventoryManager` from that `Player` reference. It also displays the name of the item as it pops out of the chest and is given to the player.
+
+### NPC (`NPC.cs`)
+---
+This is the main driver class for any NCP and centralization for its behavior. It extends `Movement.cs` as it implements the need for movement based on whether or not it is following something.
+
+- The following customizable fields are available:
+  * `target`: The target of this NPC. This is what will be focused on and followed.
+  * `focusing`: This defines whether or not the NPC "looks" at its `target`; it moves the sprite's position based on this.
+  * `limitedRange`: If set to `true`, the NPC will only follow if the `target` is within a specified `range`.
+  * `range`: The range, or "reach", the NPC has if range is limited; its follow zone.
+  * `maxHealth`: Max NPC health.
+  * `health`: Current NPC health.
+  * `standingStill`: If `true`, it will not follow its designated `target`.
+  * `facingBackward`: The sprite to use if the `target` goes above the current NPC's position, to mimic it turning its back away from the camera to follow the `target` "up" the level. If not set, the default is the current sprite so it does not disappear.
+
+- `FixedUpdate()`: Checks to see if the NPC is `focusing` and updates the location faced accordingly, then takes the range and direction from the `target`, and if it has `limitedRange`, then it will make sure the `target` is in range. Finally, it will call its parent function, `MoveDirection()`, with a `Vector2` of the direction of the `target`.
+
+### Story NPC (`StoryNPC.cs`)
+---
+This is the starting framework for any NPC that is not an enemy (though, it extends `NPC.cs`, just with extra functionality); rather, they are there to speak to the player and are interactable. This is still yet to be implemented, but it will have specific dialogue prompts to display based on the `GameManager` and its story progression field.
+
+### Warp Gate (`WarpGate.cs`)
+---
+This is a simple implementation to allow for two warp gates to be inter-connected and teleport a `Player` to its pair.
+
+There is no need to re-define the `WarpGate link` as it is pre-defined with its partner in the Pre-fab.
+
+It automatically fetches the `Main Camera` to teleport it immediately instead of having it trail.
+
+- The following customizable fields are available:
+  * `outLeft`: Incoming gets spawned left of the current gate.
+  * `outRight`: Incoming gets spawned right of the current gate.
+  * `outDown`: Incoming gets spawned down of the current gate.
+  * `outUp`: Incoming gets spawned up of the current gate.
 
 
 ---
