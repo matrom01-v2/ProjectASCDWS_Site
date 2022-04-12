@@ -40,6 +40,16 @@ Pronouns are another good example. Via player preference, we can set the pronoun
 ---
 
 ## Game Objects and Connections
+---
+
+
+### Item Database (`ItemDatabase.cs`)
+---
+Item database stores all instances of unique items to be quickly referenced and copied into the player's inventory.
+
+
+### Player Inventory (`InventoryManager.cs`)
+---
 
 ---
 
