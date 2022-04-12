@@ -37,6 +37,28 @@ Pronouns are another good example. Via player preference, we can set the pronoun
 ## Singleton Blackboard
 > ### Meet: The GameManager
 
+The GameManager.cs file is the file that tends to work as a hub for the rest of the files. Examples of this currently are the Awake, ShowText, the prononouns, SaveState, and LoadState methods which is used once the game starts. 
+
+- Awake Method
+	- The awake method is used once the game has been launched and is used to create a screen resolution, create an instance of GameManager, loads the load state if there is any, and creates an object to not destroy.
+- Pronouns
+	- These pronouns are going to be used for player preference. This is part of our customizability that will let the player work with their preferences in game.
+- Subjective/Objective/Possesive Methods
+	- This method will return the type of pronoun from the lists created to be used in text labels later on throughout the story.
+- ShowText Method 
+	- This method is called to be able to show a floating text in the game. If we want something to pop up when there is an interaction, such as walking into a chest or talking to an npc, this method will be called to show the text on the screen for a chosen amount of time with specific font size, color, position, and motion.
+- SaveState method
+	- This method will load the current save state of the game and set it.
+- LoadState method
+	- Checks if there is a current savestate and will load that save state into the game if there currently is one, otherwise will do nothing.
+
+We also create certain objects for use later in other methods as well. Examples of these are the:
+- Player object
+- FloatingTextManager object
+- PlayerSprites 
+- WeaponSprites 
+- itemDataBase
+
 ---
 
 ## Game Objects and Connections
