@@ -61,7 +61,18 @@ We also create certain objects for use later in other methods as well. Examples 
 
 ---
 
-## Game Objects and Connections
+## Game Objects and Scripts
+---
+
+These are scripts attached to objects that extend from the `MonoBehavior` class. The scripts enact certain actions and functionality for objects such as the player and NPCs.
+
+### Item Database (`ItemDatabase.cs`)
+---
+Item database stores all instances of unique items to be quickly referenced and copied into the player's inventory.
+
+
+### Player Inventory (`InventoryManager.cs`)
+---
 
 ---
 
