@@ -77,6 +77,11 @@ This script controls the entirety of a player GameObject, and is the main driver
 
 
 \\MATEO YOUR STUFF GOES HERE\\
+- **Implementation of `HealthBar.cs`**
+
+
+
+	-  
 ### Health Bar (`HealthBar.cs`)
 ---
 
@@ -84,7 +89,7 @@ This sets up the health bar system for the player object. This extends `MonoBeha
 - This features two functions that set integers realating to the Player's health. 
 - Respectively, this will then effect the slider object attached to the player. 
 
-
+(See `Player.cs` for implementation of these scripts)
 ### Thirst Bar (`Thirstbar.cs`)
 ---
 
