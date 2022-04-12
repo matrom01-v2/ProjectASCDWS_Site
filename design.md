@@ -100,14 +100,46 @@ Similar to the health bar, this will set the thirst bar system for the Player. T
 (See `Player.cs` for implementation of these scripts)
 ### Camera Motor (`CameraMotor.cs`)
 ---
+The Camera Motor is the main driver for the primary player camera, which extends `Movement.cs` in order to have all the unified movement behavior and properties as any other entity that requires it.
+
+- There is an extra field, `lookAt`, which can be set to any GameObject to tail.
+- Additionally, `boundX` and `boundY` define how far the object in focus needs to move before the camera begins to follow along.
+- The `Start()` method overrides the `Base` `Start()` method in `Movement.cs`. It still calls the base `Start()` with `Base.Start()`, then overrides the default `blockingMasks` that will halt movement; I.E. the gameObject masks to collide with.
+- The Camera Motor also comes equipped with a "Panic" system in case the Camera gets stuck around a sharp turn or tight squeeze in collision objects, that takes two fields:
+  * `panicDistance`: The distance the `lookAt` object needs to get away from the camera before disabling collisions.
+  * `panicEnd`: Control field to detail the end of the panic (`panicStart` + `2 seconds`). If the panic is enabled, then `panicEnd` will be the time in which collisions will be re-enabled and dictate the end of the panic.
 
 ### Item Database (`ItemDatabase.cs`)
 ---
 Item database stores all instances of unique items to be quickly referenced and copied into the player's inventory.
 
+- All Item instances are declared upon `Awake()` to allow for quick retrieval when in-game.
+  * Currently implemented via a list; Dictionary<int, Item> will be implemented next sprint.
+- GetItem() fetches an item from the database via ID or Name.
+- `GameManager` now holds a reference to the ItemDatabase GameObject to quickly reference wherever needed to forego a costly fetch.
+
 
 ### Player Inventory (`InventoryManager.cs`)
 ---
+InventoryManager stores all items that the player has in a list, along with keeping track of the weight.
+
+- It contains a reference back to ItemDatabase for quick access.
+- `GameManager` now holds a reference to the InventoryManager GameObject to quickly reference wherever needed to forego a costly fetch.
+
+UML DIAGRAM
+```
+InventoryManager {
+public
+------
+ItemCount(Item item | int id | string name) : int
+GiveItem(Item item | int id | string name) : bool
+RemoveItem(Item item | int id | string name) : bool
+CanCarry(Item item) : bool
+}
+```
+- GiveItem() checks weight against the current haul, and returns true if it was able to add to the player's inventory, and increments current weight based on the item weight.
+- RemoveItem() returns true if it found and removed an item from the inventory, and decrements the current weight based on the item weight.
+- CanCarry() is a helper function to see if an item's weight is able to be carried based on the current weight being carried.
 
 ---
 
