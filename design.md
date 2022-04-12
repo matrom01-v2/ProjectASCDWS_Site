@@ -44,6 +44,22 @@ Pronouns are another good example. Via player preference, we can set the pronoun
 
 These are scripts attached to objects that extend from the `MonoBehavior` class. The scripts enact certain actions and functionality for objects such as the player and NPCs.
 
+### Movement (`Movement.cs`)
+---
+
+### Player (`Player.cs`)
+---
+This script controls the entirety of a player GameObject, and is the main driver for the player-controlled character. It extends `Movement.cs` to have a unified movement behavior, and receives all of the Movement class's fields.
+
+\[ROBERT'S STUFF\]
+
+
+\\MATEO YOUR STUFF GOES HERE\\
+
+
+### Camera Motor (`CameraMotor.cs`)
+---
+
 ### Item Database (`ItemDatabase.cs`)
 ---
 Item database stores all instances of unique items to be quickly referenced and copied into the player's inventory.
