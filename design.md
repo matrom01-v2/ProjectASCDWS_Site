@@ -44,5 +44,47 @@ Pronouns are another good example. Via player preference, we can set the pronoun
 ---
 
 ## Static Classes
+---
+These classes do not extend Unity's `MonoBehavior` class, and are used in conjuction with scripts that do. These are helpers to encapsulate key data points such as Items and their information.
+
+### Item (`Item.cs`)
+---
+This is a Static class for all in-game items.
+- Items can have an ID, name, description, weight, an icon for the inventory, and any extra stats that might come in handy for later development stages.
+- These items are disconnected from Unity's MonoBehavior library and are addons to an item that uses the `Pickup.cs` script, or are located within any objects that are Collectables (`Colletable.cs`).
+- Item icons are stored in the following directory relative from root **AND ARE TO BE NAMED EXACTLY AS THE ITEM IS NAMED IN-GAME**:
+```
+/Sprites/Items
+Convention example:
+-----------------------
+Directory: /Sprites/Items/Blue Key.imageExtension
+Item instance: {
+name: "Blue Key"
+}
+```
+
+This is due to the Item class constructor using the `itemName` property to fetch and Reload the icon for later use in the project.
+
+UML DIAGRAM
+```
+Item {
+public
+------
+Constructor(
+	id : int,
+	weight : int,
+	name : string,
+	description : string,
+	stats : dictionary<string, int>
+) : Item
+Constructor(Item item) : Item
+itemId     : int
+itemName   : string
+itemDescription : string
+itemWeight : int
+itemIcon   : Sprite
+stats      : Dictionary<string, int>
+}
+```
 
 ---
