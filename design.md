@@ -39,7 +39,14 @@ Pronouns are another good example. Via player preference, we can set the pronoun
 
 ---
 
-## Game Objects and Connections
+## Game Objects and Scripts
+
+---
+
+These are scripts attached to objects that extend from the `MonoBehavior` class. The scripts enact certain actions and functionality for objects such as the player and NPCs.
+
+
+
 
 ---
 
