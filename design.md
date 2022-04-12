@@ -68,7 +68,14 @@ These are scripts attached to objects that extend from the `MonoBehavior` class.
 
 ### Movement (`Movement.cs`)
 ---
+This class handles all movement behavior, which includes collision and water movement debuffs. This helps centralize all behavior, and allows for easy modification to movement mechanics and addition to new debuffs or buffs such as in-water movement.
 
+- These following properties are available to customize
+  * `moveMultiplier`: Movement speed for the object. `0.5F` is the default.
+  * `waterResistance`: Movement speed `multiplier` when the object is in water. `1.0F` is the default.
+    * Anything `less than 1.0F` slows the object movement down.
+    * Anything `greater than 1.0F` speeds the object movement up.
+    * `No debuff` is applied if the value is `exactly 1.0F`.
 
 ### Player (`Player.cs`)
 ---
