@@ -85,13 +85,26 @@ This script controls the entirety of a player GameObject, and is the main driver
 - Player overrides parent (base) `Start()`, calls `base.Start()`, then sets the `currentHealth` and `currentThirst` to `maxHealth` and `maxThirst`, and sets it to the respective visual bars.
 - `FixedUpdate()` takes user input and calls its parent's, `Movement`, `MoveDirection` method that takes in a `vector2` of its x and y movement based on user input.
 
-\\MATEO YOUR STUFF GOES HERE\\
 - **Implementation of `HealthBar.cs`**
 
 
+	- **TakeDamage** - arguments: **int damage** - subtracts from the current health by the **damage** input. This will then call the SetHealth function from `HealthBar.cs` to update the health bar object.
 
-	-  
+	- **HealthRegen** - arguments: **void** - checks first if currentHealth is lower than maxHealth, if so, updates a time to include deltaTime, this ensures that the health is not regenerated every frame, but at a set time. The next comparison chech if the time is greater than or equal to **ThirstHealthDebuff()** and update the Plauyer's currentHealth and resets the timer.
 
+	- **Update** - arguments: **void** - this is called once per frame. This includes some testing for taking damage and calls **HealthRegen()**. 
+
+- **Implementation of `ThirstBar.cs`**
+
+
+	- **BecomeThirst** - arguments: **int thirst** - validates input, then will **subtract** from the Player's current thirst by **thirst** input. This will then call the SetThirst function from `ThirstBar.cs` to update the thirst bar object. 
+
+	- **RecoverThirst** - arguments: **int thirst** - validates input, then will **add** to the Player's current thirst with the input **thirst**. This will then call the SetThirst function from `ThirstBar.cs` to update the thirst bar object. 
+
+	- **ThirstHealthDebuff** - arguments: **void** - this will return a float to work with the **HealthRegen** function. Based on currentThirst, this will return a float increasing by 5% for each 25% decrease of the Player's currentThirst. 
+
+	- **Update** - arguments: **void** - this is called once per frame. This includes some testing for taking damage. Calls **BecomeThirst()** after an appropriate key press and **RecoverThirst()** after an appropriate key press. 
+		
 ### Health Bar (`HealthBar.cs`)
 ---
 
