@@ -153,6 +153,17 @@ CanCarry(Item item) : bool
 - RemoveItem() returns true if it found and removed an item from the inventory, and decrements the current weight based on the item weight.
 - CanCarry() is a helper function to see if an item's weight is able to be carried based on the current weight being carried.
 
+### Floating Text Manager (`FloatingTextManger.cs`)
+---
+Floating Text manager is meant to drive forward the floating text.
+- Update Method 
+	- This method is meant to work as a refresh to the text and make sure that it runs the amount of time needed and doesn't stay longer than needs to be. Calls the method `UpdateFloatingText` in `FloatingText.cs` to make sure this happens correctly.
+- GetFloatingText Method
+	- This method will check to see if there is currently a text active if not, it will retrieve a text, instantiate it, and send it back to the `Show` method.
+- Show Method
+	- Show will set all fields of a floatingText object. This includes the actual text (`msg`), `fontSize`, `color`, `position`, `motion`, and `duration`. This will finally call the show method in the `FloatingText.cs` file.
+
+
 ---
 
 ## Static Classes
@@ -198,5 +209,28 @@ itemIcon   : Sprite
 stats      : Dictionary<string, int>
 }
 ```
+
+### Floating Text (`FloatingText.cs`)
+---
+This file is meant to hold the very basics for showing, hiding, and updating the text currently on screen. This file also holds all the fields of floatingText.
+- Fields:
+	- `bool` active.
+		- Shows whether a text is currently active or not.
+	- `GameObject` go
+		- Works to update the text in unity through GameManager
+	- `Text` txt
+		- This is the actual text that will show up in game.
+	- `Vector3` motion
+		- This is how we want the text to move in game. This includes the text sliding up, down, left or right.
+	- `float` duration
+		- How long we want the text to show up on screen.
+	- `float` lastShown
+		- When the text was last on screen.
+- Show Method
+	- Will set the `active` field to true, set the `lastShown` field to the time in the engine that is current, and call to set the text to active.
+- Hide Method
+	- Will set the `active` field to false, and call to set the text as inactive.
+- UpdateFloatingText
+	- Will check the `active` field first and check if it is inactive, will return if so. Will then make sure that the `lastShown` field is not greater than the wanted duration of the text. Finally will update the motion of the text, or more specifically the current position of the text. 
 
 ---
