@@ -69,12 +69,15 @@ These are scripts attached to objects that extend from the `MonoBehavior` class.
 ### Movement (`Movement.cs`)
 ---
 
+
 ### Player (`Player.cs`)
 ---
 This script controls the entirety of a player GameObject, and is the main driver for the player-controlled character. It extends `Movement.cs` to have a unified movement behavior, and receives all of the Movement class's fields.
 
 \[ROBERT'S STUFF\]
-
+- Player has a reference to their own Inventory Manager (`InventoryManager.cs`) as a field for easy access.
+- Player overrides parent (base) `Start()`, calls `base.Start()`, then sets the `currentHealth` and `currentThirst` to `maxHealth` and `maxThirst`, and sets it to the respective visual bars.
+- `FixedUpdate()` takes user input and calls its parent's, `Movement`, `MoveDirection` method that takes in a `vector2` of its x and y movement based on user input.
 
 \\MATEO YOUR STUFF GOES HERE\\
 - **Implementation of `HealthBar.cs`**
@@ -82,6 +85,7 @@ This script controls the entirety of a player GameObject, and is the main driver
 
 
 	-  
+
 ### Health Bar (`HealthBar.cs`)
 ---
 
@@ -118,6 +122,14 @@ Item database stores all instances of unique items to be quickly referenced and 
 - GetItem() fetches an item from the database via ID or Name.
 - `GameManager` now holds a reference to the ItemDatabase GameObject to quickly reference wherever needed to forego a costly fetch.
 
+### Lerp (`AutoLerp.cs`)
+---
+This is a simple script to allow for an item's color property to cycle through a given list of colors at a given interval of time.
+
+- It has the following customizable fields:
+  * `active`: Defines whether or not to Lerp.
+  * `specialColors`: Defines the colors to cycle through; takes Unity `Color` statics.
+  * `colorTransitionTime`: The amount of seconds to smoothly transition between colors in `specialColors`.
 
 ### Player Inventory (`InventoryManager.cs`)
 ---
