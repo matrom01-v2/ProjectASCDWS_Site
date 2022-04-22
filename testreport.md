@@ -93,7 +93,6 @@ A series of steps was used to test the system. Initial testing was done on each 
 > ### 8. In-Game menu
 
 --- 
-- Current state: ***in development***
+- Current state: ***implemented***
 
-- Similar to the main menu, these in game menus are currently in development. Menus will be tested via the Unity play test features as to avoid bugs or damage to other systems/system interactions. We expect that the user can pause the game, load save files, see inventory with in game stats. Therefore all in-game menus are currently **not fully implemented**.
-
+- The in game menus are currently **implemented**. Menus will have been tested via the Unity play test features as to avoid bugs or damage to other systems/system interactions. The user can pause the game, load save files, see inventory with in game stats. Users can now open an in-game menu with their statistics displayed: health, thirst, and health regen rate. Users can also change their game skin and their decision saved and loaded in successfully. All testing was done with the Unity play testing features. 
