@@ -2,8 +2,43 @@
 
 ## 1. Component Testing
 
-> ### Robert's Shizzle
+> ### Universal Movement
 ---
+To test the functionality of universal movement (Player, Camera, NPC):
+- Player:
+    * The ability to move the player around the scene and have the player collide and stop moving with the level borders and any collidable object.
+    * Player movement stutters and slows upon entering water.
+- NPC:
+    * The ability to move around the scene and collide with level borders and any collidable object.
+    * NPC movement stutters and slows upon entering water if they do not have 100% water movement resistance.
+- Camera:
+    * The ability to follow its focus target.
+    * Collides with level borders.
+    * Panics and removes collisions if its target gets too far away.
+
+These three extensions to Movement inherit the base movement, and the only difference between the three is the camera's "panic" mode.
+
+> ### Collectable
+---
+To test the functionality of Collectables (any interactable object that can give items), we can test this by having the Player interact with any Collectable object in the scene and receive the Items contained within if the incoming weight does not overburden the Player's inventory.
+
+For example, the current extension to Collectable is: Chest.
+- The player will interact with multiple different Chest objects with different items contained within, and receive the contents of the Collectable if the incoming weight does not overburden the Player's inventory.
+
+Another extension is Pick-Up:
+- The player will interact with a Pick-Up item on the ground, and if the incoming item's weight does not overburden the Player, it will be picked up, logged to the Debug Console, and the gameObject will be destroyed, removing it from the scene.
+
+> ### Chest
+---
+To test the lock functionality of the Chest, the Player can wield different kinds of keys, but only the correct KEY_ID will be accepted as a key to unlock the chest. If successful, the Chest will unlock and give the player the items it contains if the Player can hold the extra incoming weight.
+
+> ### Inventory
+---
+To test the functionality of Inventory, we can combine this with tests with Collectable, as any Item that is picked up or collected by the player will be logged to the Debug console (later, displayed in the In-Game Menu), along with showing the current weight being carried by the Player.
+
+If an **incoming item's weight** (I.E. any Collectable) **plus** the **current weight being carried** is not greater than the **max weight**, then the Item will be added to the Inventory and add the **incoming item's weight** to the **current weight** and display properly in the Debug Log; else, it will display that the Player is carrying too much.
+
+If a Player uses a Key item, it will be removed from the Player's inventory, and the result will be logged to the Debug Log along with the new weight, which should update with the **current weight minus** the **key's weight**.
 
 > ### In-Game Menu UI
 ---
