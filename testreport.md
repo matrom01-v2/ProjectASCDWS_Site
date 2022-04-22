@@ -5,8 +5,19 @@
 > ### Robert's Shizzle
 ---
 
-> ### Andres's Shizzle
+> ### In-Game Menu UI
 ---
+To test the functionality of the in-game menu we have to make sure that the stats for the player would automatically update when something was changed. Current implemented stats on the menu are:
+- Health
+- Thirst or "thorst"
+- Health Regen Rate
+- Ability to change skins
+
+We would change these stats by making the player take damage, get thirsty, and regen rate would be effected by thirst. Once the player has taken a change to their stats, we had to make sure that there was change applied to the menu, which was successful. We would see an update in text displaying the current Health/Thirst/Regen Rate. Same goes for skin changes, the skin would successfully change on the menu and in game.
+
+> ### Save/Load States
+---
+For save or load states, we wanted to make sure that the player can successfully save and load their data into the game. For this, we made sure to allow the player to take damage, change their skin, or any other stat change. After any of these stat changes, the player would have to press the save button which would then call the save state method. Then the player would be able to quit the game and load back in which would automatically call the load state method and bring back their previous stats and selected skin.
 
 > ### Health Bar and Regeneration
 ---
