@@ -1,4 +1,4 @@
-# Feast for a Crow, presented by Insufficient RAM
+# Feast for a Crow, presented by Insufficient RAM<br><sub>Robert Vargas, Andres Marquez, Mateo Romero</sub>
 
 Welcome to the forest.
 ---
